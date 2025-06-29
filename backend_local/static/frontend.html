@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TravelMate - 智能行程规划</title>
+
+  <!-- FontAwesome 图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Leaflet 地图样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- 自定义样式 -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 首页 -->
+  <div class="container" id="home-page">
+    <h1>TravelMate</h1>
+    <input id="search-input" placeholder="输入景点关键字，回车搜索" />
+    <button onclick="showRecommendPage()">智能推荐</button>
+  </div>
+
+  <!-- 搜索结果页面 -->
+  <div class="container" id="search-results-page" style="display:none;">
+    <button onclick="goBack()">返回</button>
+    <h2 id="search-results-title"></h2>
+    <div id="search-results-container"></div>
+  </div>
+
+  <!-- 详情页 -->
+  <div class="container" id="attraction-detail-page" style="display:none;">
+    <button onclick="goBack()">返回</button>
+    <h2 class="attraction-title"></h2>
+    <div class="attraction-location">📍 <span></span></div>
+    <p class="attraction-description"></p>
+    <h3 class="reviews-title">优缺点</h3>
+    <div></div>
+    <h3 class="section-divider">评论来源</h3>
+    <div></div>
+  </div>
+
+  <!-- Tinder 推荐页面 -->
+  <div class="container" id="recommend-page" style="display:none;">
+    <div id="recommend-progress" class="progress-bar"></div>
+    <div id="recommend-card-stack" class="card-stack"></div>
+    <div class="recommend-controls">
+      <button onclick="swipeLeft()">👎</button>
+      <button onclick="swipeRight()">👍</button>
+    </div>
+    <button id="generate-trip-btn" onclick="generateTripFromSelected()" style="display:none;">生成行程</button>
+    <button onclick="goBack()">返回</button>
+  </div>
+
+  <!-- 行程详情页面 -->
+  <div class="container" id="trip-detail-page" style="display:none;">
+    <button onclick="goHome()">返回首页</button>
+    <h2>行程详情</h2>
+    <ul id="itinerary-list"></ul>
+    <div id="map" style="width:100%; height:400px;"></div>
+  </div>
+
+  <!-- Leaflet 地图脚本 -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- 自定义逻辑 -->
+  <script src="scripts.js"></script>
+</body>
+</html>

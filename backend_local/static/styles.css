@@ -1,0 +1,30 @@
+/* 通用重置 */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: sans-serif; line-height:1.5; background:#f8f8f8; }
+.container { padding:20px; }
+input { width:80%; padding:10px; font-size:16px; }
+button { padding:8px 16px; margin:5px; font-size:14px; }
+
+/* 搜索结果卡片 */
+.trip-card { display:inline-block; margin:10px; width:200px; cursor:pointer; }
+.trip-image { position:relative; width:100%; height:120px; background-size:cover; background-position:center; border-radius:8px; overflow:hidden; }
+.trip-overlay { position:absolute; bottom:0; width:100%; background:rgba(0,0,0,0.4); color:#fff; padding:4px; }
+.trip-title { font-size:16px; font-weight:bold; }
+.trip-meta { font-size:12px; }
+
+/* Tinder 卡片 */
+.card-stack { position:relative; width:300px; height:400px; margin:20px auto; }
+.tinder-card { position:absolute; width:100%; height:100%; border-radius:12px; overflow:hidden; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.1); }
+.tinder-card-img { width:100%; height:60%; object-fit:cover; }
+.tinder-card-info { padding:10px; }
+.tinder-card-title { font-size:18px; margin-bottom:6px; }
+.progress-bar { display:flex; height:6px; margin-bottom:10px; }
+.recommend-controls { text-align:center; }
+.recommend-controls button { font-size:24px; padding:10px 20px; }
+
+/* 行程列表 */
+ul#itinerary-list { list-style:none; margin-top:10px; }
+ul#itinerary-list li { padding:8px; background:#fff; margin-bottom:6px; border-radius:4px; }
+
+/* 地图容器 */
+#map { margin-top:10px; border:1px solid #ccc; border-radius:8px; }
