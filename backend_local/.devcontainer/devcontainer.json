@@ -1,0 +1,22 @@
+{
+  "name": "Travel API Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [8000],
+  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+
+  // 把 settings 和 extensions 放到 customizations.vscode 下
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}
+
