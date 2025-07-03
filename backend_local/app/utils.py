@@ -16,7 +16,6 @@ def safe_str(value):
     return str(value)
 
 
-
 # 示例：把行程草稿转换成 GeoJSON
 def to_geojson(items: List[dict]) -> dict:
     features = []

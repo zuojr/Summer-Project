@@ -32,7 +32,7 @@ from .crud_social import (
 # 手动挂载 FastAPI 的 Static 目录
 app = FastAPI(title="Local Travel Prototype")
 
-# 取得 static 資料夾的絕對路徑
+# 取得 static 文件夹的绝对路径
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 

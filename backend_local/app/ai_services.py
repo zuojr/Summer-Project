@@ -2,8 +2,8 @@ from typing import List
 from .models import Attraction, Post
 
 # AI 优缺点归纳（Mock）
+# 取正向评论前3条当 pros，负向前3条当 cons
 def summarize_pros_cons(attraction: Attraction, posts: List[Post]) -> Attraction:
-    # 取正向评论前3条当 pros，负向前3条当 cons
     pros = [p.content[:50]+"…" for p in sorted(posts, key=lambda x: -x.sentiment)[:3]]
     cons = [p.content[:50]+"…" for p in sorted(posts, key=lambda x: x.sentiment)[:3]]
     attraction.pros = pros
