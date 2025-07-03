@@ -3,6 +3,7 @@
 import os
 import pandas as pd
 from .models import Attraction, Post
+from .utils import safe_str
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -48,13 +49,13 @@ def list_attractions(dest: str):
     return [
         Attraction(
             id     = r["id"],
-            name   = r["name"],
-            description = r.get("description"),
+            name   = safe_str(r["name"]),
+            description = safe_str(r.get("description")),
             lat    = r["lat"],
             lon    = r["lon"],
             tags   = r["tags"],
             images = r["images"],     # 返回图片列表
-            address= r.get("address"),# 返回地址
+            address= safe_str(r.get("address")),# 返回地址
             pros   = [],
             cons   = [],
             source_posts=[]
