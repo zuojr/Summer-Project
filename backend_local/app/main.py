@@ -4,7 +4,6 @@ from fastapi import FastAPI, Query, Body
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Optional
 
-
 from .models import (
     Attraction,
     RecommendRequest,
@@ -50,7 +49,8 @@ def api_recommend(
 def api_detail(id: str):
     return detail(id)
 
-@app.post("/itinerary", response_model=List[dict])
+# 行程生成接口 - 修改返回类型
+@app.post("/itinerary")
 def api_itinerary(req: ItineraryRequest):
     return build_itinerary(req)
 
@@ -106,10 +106,24 @@ def api_save_itinerary(
     days: int = Body(...),
     preferences: List[str] = Body(...)
 ):
+    # 生成行程
     itinerary = build_itinerary(ItineraryRequest(
-        selected_ids=selected_ids, days=days, preferences=preferences
+        selected_ids=selected_ids, 
+        days=days, 
+        preferences=preferences,
+        destination="",  # 补充destination参数
+        excluded_ids=[]  # 补充excluded_ids参数
     ))
-    return save_itinerary(user_id, title, selected_ids, days, preferences, itinerary)
+    
+    # 保存行程
+    return save_itinerary(
+        user_id=user_id,
+        title=title,
+        selected_ids=selected_ids,
+        days=days,
+        preferences=preferences,
+        itinerary=itinerary
+    )
 
 @app.get("/users/{user_id}/itineraries", response_model=List[ItineraryRecord])
 def api_list_user_itineraries(user_id: str):
