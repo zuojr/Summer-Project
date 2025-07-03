@@ -2,7 +2,9 @@
 
 from fastapi import FastAPI, Query, Body
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from typing import List, Optional
+import os
 
 
 from .models import (
@@ -26,7 +28,16 @@ from .crud_social import (
     save_itinerary, list_user_itineraries
 )
 
+
+# 手动挂载 FastAPI 的 Static 目录
 app = FastAPI(title="Local Travel Prototype")
+
+# 取得 static 資料夾的絕對路徑
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
 
 # CORS 配置
 app.add_middleware(
