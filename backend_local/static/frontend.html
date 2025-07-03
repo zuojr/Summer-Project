@@ -48,7 +48,9 @@
       <button onclick="swipeLeft()">👎</button>
       <button onclick="swipeRight()">👍</button>
     </div>
-    <button id="generate-trip-btn" onclick="generateTripFromSelected()" style="display:none;">生成行程</button>
+    <input id="days-input" type="number" min="1" max="30" value="1" style="width:60px;margin:10px 0;" placeholder="天數" />
+    <span style="margin-left:8px; font-size:14px; color:#555;">输入行程总天数(默认为1)</span>
+    <button id="generate-trip-btn" style="display:none;">生成行程</button>
     <button onclick="goBack()">返回</button>
   </div>
 
@@ -57,6 +59,7 @@
     <button onclick="goHome()">返回首页</button>
     <h2>行程详情</h2>
     <ul id="itinerary-list"></ul>
+    <select id="day-select" style="margin-bottom:10px;"></select>
     <div id="map" style="width:100%; height:400px;"></div>
   </div>
 

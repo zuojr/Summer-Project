@@ -4,9 +4,9 @@ from .ai_services import summarize_pros_cons, generate_itinerary
 from .models import RecommendRequest, ItineraryRequest, Attraction
 
 # 推荐候选景点
+# TODO: 根据 prefs 做二次过滤或打分排序
 def recommend(req: RecommendRequest) -> List[Attraction]:
     cands = list_attractions(req.destination)
-    # TODO: 根据 prefs 做二次过滤或打分排序
     return cands
 
 # 生成景点详情（含优缺点）
