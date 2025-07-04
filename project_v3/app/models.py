@@ -91,3 +91,16 @@ class ItineraryRecord(BaseModel):
     preferences: List[str]
     itinerary: List[dict]
     created_at: str
+
+# app/models.py
+
+class ItineraryItem(BaseModel):
+    id: str
+    itinerary_id: str
+    day: int
+    position: int
+    attraction_id: str
+
+class ItineraryDetail(BaseModel):
+    itinerary_id: str
+    items: List[ItineraryItem]  # 按 day, position 排序

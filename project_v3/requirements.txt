@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+openpyxl
+pydantic
+
+sqlalchemy
+psycopg2-binary    # 如果使用 PostgreSQL，SQLite 可不用
+alembic             # 数据库迁移
+python-dotenv       # .env 环境变量加载
+openai              # 如果接入 OpenAI 服务
